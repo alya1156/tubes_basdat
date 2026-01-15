@@ -1,4 +1,4 @@
-# Hotel Galasa - Hotel Booking Management System
+# Hotel salsuy - Hotel Booking Management System
 
 Sistem manajemen pemesanan hotel berbasis web yang dirancang khusus untuk **operasional administrasi pembayaran, verifikasi pembayaran, dan manajemen tamu**. Sistem ini merupakan aplikasi simpel dan fokus pada kebutuhan administrator hotel untuk mengelola pembayaran, tamu, dan reservasi.
 
