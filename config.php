@@ -17,11 +17,11 @@ define('DB_CHARSET', 'utf8mb4');
 // ---- Konfigurasi aplikasi ----
 define('BASE_URL', '/tubes_basdat/'); // path relatif aplikasi di webroot
 define('UPLOAD_URL', BASE_URL . 'uploads/'); // folder upload (sesuaikan struktur folder)
-define('HOTEL_NAME', 'Grand Hotel Ashri');
-define('HOTEL_DESC', 'Resort pantai eksklusif dengan layanan bintang lima.');
-define('HOTEL_ADDRESS', 'JL. Pantai No.1, Kabupaten Pantai');
+define('HOTEL_NAME', 'Hotel Galasa');
+define('HOTEL_DESC', 'Resort eksklusif dengan layanan bintang lima.');
+define('HOTEL_ADDRESS', 'Jl. Galasa No.1, Indonesia');
 define('HOTEL_PHONE', '+62 81 2345 6789');
-define('HOTEL_EMAIL', 'info@grandhotelashri.example');
+define('HOTEL_EMAIL', 'info@hotelgalasa.com');
 
 // ---- Error reporting (development) ----
 ini_set('display_errors', 1);

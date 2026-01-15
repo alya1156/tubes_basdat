@@ -7,11 +7,11 @@ define('DB_NAME', 'hotel_db');
 define('DB_PORT', 3306);
 
 // Hotel Info
-define('HOTEL_NAME', 'Grand Hotel Ashri');
+define('HOTEL_NAME', 'Hotel Galasa');
 define('HOTEL_PHONE', '+62 812-3456-7890');
-define('HOTEL_EMAIL', 'info@grandhotelashri.com');
-define('HOTEL_ADDRESS', 'Jl. Pantai Indah No. 456, Denpasar, Bali');
-define('HOTEL_DESC', 'Nikmati pengalaman menginap mewah di tepi pantai dengan fasilitas world-class dan layanan prima');
+define('HOTEL_EMAIL', 'info@hotelgalasa.com');
+define('HOTEL_ADDRESS', 'Jl. Galasa No.1, Indonesia');
+define('HOTEL_DESC', 'Nikmati pengalaman menginap mewah dengan fasilitas world-class dan layanan prima');
 
 // Bank Info
 define('BANK_NAME', 'BCA');

@@ -107,8 +107,8 @@ $featured_rooms = $stmt->fetchAll();
                 <div class="col-lg-6">
                     <div class="hero-content">
                         <h1><?php echo HOTEL_NAME; ?></h1>
-                        <p class="tagline">Temukan Keindahan & Kenyamanan di Tepi Pantai</p>
-                        <p class="description"><?php echo HOTEL_DESC; ?> Nikmati sunset yang memukau, pantai pribadi, dan layanan bintang lima yang tak terlupakan.</p>
+                        <p class="tagline">Temukan Keindahan & Kenyamanan di Hotel Galasa</p>
+                        <p class="description"><?php echo HOTEL_DESC; ?> Nikmati kenyamanan maksimal dan layanan bintang lima yang tak terlupakan.</p>
                         <a href="/tubes_basdat/guest/booking.php" class="btn btn-primary btn-lg"><i class="bi bi-calendar-check"></i> Booking Sekarang</a>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ $featured_rooms = $stmt->fetchAll();
                     <div class="hero-image">
                         <div class="hero-image-placeholder">
                             <i class="bi bi-image"></i>
-                            <p style="color: rgba(255,255,255,0.7); margin-top: 20px;">Pemandangan Pantai Grand Hotel Ashri</p>
+                            <p style="color: rgba(255,255,255,0.7); margin-top: 20px;">Pemandangan Hotel Galasa</p>
                         </div>
                     </div>
                 </div>
@@ -131,8 +131,8 @@ $featured_rooms = $stmt->fetchAll();
                 <div class="col-md-3">
                     <div class="feature-card">
                         <i class="bi bi-geo-alt"></i>
-                        <h5>Lokasi Pantai Premium</h5>
-                        <p>Langsung menghadap pantai dengan akses private beach eksklusif untuk tamu</p>
+                        <h5>Lokasi Strategis Premium</h5>
+                        <p>Lokasi strategis dengan akses mudah ke berbagai destinasi wisata sekitar</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -199,7 +199,7 @@ $featured_rooms = $stmt->fetchAll();
     <section class="gallery-section">
         <div class="container">
             <h2 class="section-title">Galeri Hotel</h2>
-            <p class="section-subtitle">Jelajahi keindahan fasilitas Grand Hotel Ashri</p>
+            <p class="section-subtitle">Jelajahi keindahan fasilitas Hotel Galasa</p>
             
             <div class="gallery-grid">
                 <?php for ($i = 0; $i < 6; $i++): ?>
