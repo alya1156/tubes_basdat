@@ -7,10 +7,10 @@ define('DB_NAME', 'hotel_db');
 define('DB_PORT', 3306);
 
 // Hotel Info
-define('HOTEL_NAME', 'Hotel Xyz');
-define('HOTEL_PHONE', '+62 XXX-XXXX-XXXX');
-define('HOTEL_EMAIL', 'info@hotelxyz.com');
-define('HOTEL_ADDRESS', 'Jalan Merdeka No. 123, Kota');
+define('HOTEL_NAME', 'Pantai Beach Resort');
+define('HOTEL_PHONE', '+62 812-3456-7890');
+define('HOTEL_EMAIL', 'info@pantaibeach.com');
+define('HOTEL_ADDRESS', 'Jl. Pantai No. 123, Bali');
 
 // Bank Info
 define('BANK_NAME', 'BCA');

@@ -6,7 +6,7 @@ require_once '../../includes/auth.php';
 requireAdminLogin();
 
 $edit_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
-$data = ['id_tamu' => '', 'nama' => '', 'no_identitas' => '', 'email' => '', 'no_telp' => '', 'alamat' => ''];
+$data = ['id_tamu' => '', 'nama' => '', 'no_identitas' => '', 'email' => '', 'no_telp' => ''];
 
 if ($edit_id) {
     $stmt = $pdo->prepare("SELECT * FROM tamu WHERE id_tamu = ?");
@@ -19,18 +19,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $no_identitas = sanitizeInput($_POST['no_identitas']);
     $email = sanitizeInput($_POST['email']);
     $no_telp = sanitizeInput($_POST['no_telp']);
-    $alamat = sanitizeInput($_POST['alamat']);
     
-    if (empty($nama) || empty($email) || empty($no_telp)) {
-        $error = 'Semua field harus diisi';
+    // Validation
+    $errors = [];
+    if (empty($nama)) $errors[] = 'Nama tidak boleh kosong';
+    if (empty($email)) $errors[] = 'Email tidak boleh kosong';
+    if (!validateEmail($email)) $errors[] = 'Email tidak valid';
+    if (empty($no_telp)) $errors[] = 'No. Telepon tidak boleh kosong';
+    if (!validatePhone($no_telp)) $errors[] = 'No. Telepon tidak valid';
+    
+    if (count($errors) > 0) {
+        $error = implode(', ', $errors);
     } else {
         if ($edit_id) {
-            $stmt = $pdo->prepare("UPDATE tamu SET nama=?, no_identitas=?, email=?, no_telp=?, alamat=? WHERE id_tamu=?");
-            $stmt->execute([$nama, $no_identitas, $email, $no_telp, $alamat, $edit_id]);
+            $stmt = $pdo->prepare("UPDATE tamu SET nama=?, no_identitas=?, email=?, no_telp=? WHERE id_tamu=?");
+            $stmt->execute([$nama, $no_identitas, $email, $no_telp, $edit_id]);
             redirectWithMessage('/tubes_basdat/modules/tamu/list.php', 'Data tamu berhasil diupdate', 'success');
         } else {
-            $stmt = $pdo->prepare("INSERT INTO tamu (nama, no_identitas, email, no_telp, alamat) VALUES (?, ?, ?, ?, ?)");
-            $stmt->execute([$nama, $no_identitas, $email, $no_telp, $alamat]);
+            $stmt = $pdo->prepare("INSERT INTO tamu (nama, no_identitas, email, no_telp) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$nama, $no_identitas, $email, $no_telp]);
             redirectWithMessage('/tubes_basdat/modules/tamu/list.php', 'Data tamu berhasil ditambahkan', 'success');
         }
     }
@@ -61,7 +68,9 @@ $msg = getSessionMessage();
         <div class="brand"><h5><?php echo HOTEL_NAME; ?></h5></div>
         <nav class="nav flex-column">
             <a href="/tubes_basdat/admin/dashboard.php" class="nav-link"><i class="bi bi-speedometer2"></i> Dashboard</a>
-            <a href="/tubes_basdat/modules/tamu/list.php" class="nav-link active"><i class="bi bi-people"></i> Tamu</a>
+            <a href="/tubes_basdat/modules/tamu/list.php" class="nav-link active"><i class="bi bi-people"></i> Manajemen Tamu</a>
+            <a href="/tubes_basdat/modules/reservasi/list.php" class="nav-link"><i class="bi bi-door-closed"></i> Cek Kamar & Reservasi</a>
+            <a href="/tubes_basdat/modules/pembayaran/list.php" class="nav-link"><i class="bi bi-credit-card"></i> Verifikasi Pembayaran</a>
             <a href="/tubes_basdat/admin/logout.php" class="nav-link" onclick="return confirm('Logout?')"><i class="bi bi-box-arrow-left"></i> Logout</a>
         </nav>
     </div>
@@ -88,12 +97,8 @@ $msg = getSessionMessage();
                     <input type="email" name="email" class="form-control" value="<?php echo htmlspecialchars($data['email']); ?>" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">No. Telepon *</label>
-                    <input type="tel" name="no_telp" class="form-control" value="<?php echo htmlspecialchars($data['no_telp']); ?>" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Alamat</label>
-                    <textarea name="alamat" class="form-control" rows="3"><?php echo htmlspecialchars($data['alamat']); ?></textarea>
+                    <label class="form-label">No. Telepon * (format: 08xxx-xxxx-xxx)</label>
+                    <input type="tel" name="no_telp" class="form-control" placeholder="08123456789" value="<?php echo htmlspecialchars($data['no_telp']); ?>" required>
                 </div>
                 <div class="d-flex gap-2">
                     <button type="submit" class="btn btn-primary">

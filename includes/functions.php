@@ -128,42 +128,6 @@ function getReservationByCode($bookingCode, $pdo) {
 }
 
 /**
- * Upload image file
- */
-function uploadImage($file, $uploadDir) {
-    if (!isset($file['tmp_name']) || !is_uploaded_file($file['tmp_name'])) {
-        return ['success' => false, 'message' => 'File upload failed'];
-    }
-    
-    // Validate file type
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-    if (!in_array($file['type'], $allowedTypes)) {
-        return ['success' => false, 'message' => 'Invalid file type. Only JPEG, PNG, GIF, WebP allowed'];
-    }
-    
-    // Validate file size (max 5MB)
-    if ($file['size'] > 5 * 1024 * 1024) {
-        return ['success' => false, 'message' => 'File too large. Max 5MB'];
-    }
-    
-    // Create directory if doesn't exist
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0755, true);
-    }
-    
-    // Generate unique filename
-    $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-    $filename = uniqid('img_') . '.' . $ext;
-    $filepath = $uploadDir . $filename;
-    
-    if (move_uploaded_file($file['tmp_name'], $filepath)) {
-        return ['success' => true, 'filename' => $filename, 'path' => $filepath];
-    }
-    
-    return ['success' => false, 'message' => 'Failed to move uploaded file'];
-}
-
-/**
  * Redirect with message
  */
 function redirectWithMessage($url, $message, $type = 'success') {

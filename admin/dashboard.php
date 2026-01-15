@@ -135,31 +135,15 @@ $msg = getSessionMessage();
                 <i class="bi bi-speedometer2"></i> Dashboard
             </a>
 
-            <div class="nav-section">Manajemen Data</div>
+            <div class="nav-section">Operasional</div>
             <a href="/tubes_basdat/modules/tamu/list.php" class="nav-link">
-                <i class="bi bi-people"></i> Tamu
+                <i class="bi bi-people"></i> Manajemen Tamu
             </a>
-            <a href="/tubes_basdat/modules/tipe_kamar/list.php" class="nav-link">
-                <i class="bi bi-door-closed"></i> Tipe Kamar
-            </a>
-            <a href="/tubes_basdat/modules/kamar/list.php" class="nav-link">
-                <i class="bi bi-houses"></i> Kamar
-            </a>
-            <a href="/tubes_basdat/modules/fasilitas/list.php" class="nav-link">
-                <i class="bi bi-star"></i> Fasilitas
-            </a>
-
-            <div class="nav-section">Reservasi & Pembayaran</div>
             <a href="/tubes_basdat/modules/reservasi/list.php" class="nav-link">
-                <i class="bi bi-calendar-check"></i> Reservasi
+                <i class="bi bi-door-closed"></i> Cek Kamar & Reservasi
             </a>
             <a href="/tubes_basdat/modules/pembayaran/list.php" class="nav-link">
-                <i class="bi bi-credit-card"></i> Pembayaran
-            </a>
-
-            <div class="nav-section">Konten</div>
-            <a href="/tubes_basdat/modules/gallery/list.php" class="nav-link">
-                <i class="bi bi-image"></i> Galeri Hotel
+                <i class="bi bi-credit-card"></i> Verifikasi Pembayaran
             </a>
 
             <div class="nav-section">Sistem</div>
@@ -230,26 +214,23 @@ $msg = getSessionMessage();
 
         <!-- Quick Actions -->
         <div style="margin-top: 30px;">
-            <h5 style="margin-bottom: 15px;">Quick Actions</h5>
+            <h5 style="margin-bottom: 15px;">Menu Utama</h5>
             <div class="row">
-                <div class="col-md-3 mb-3">
-                    <a href="/tubes_basdat/modules/tamu/tambah.php" class="btn btn-primary w-100">
-                        <i class="bi bi-plus-circle"></i> Tambah Tamu
-                    </a>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <a href="/tubes_basdat/modules/tipe_kamar/tambah.php" class="btn btn-info w-100">
-                        <i class="bi bi-plus-circle"></i> Tambah Tipe Kamar
-                    </a>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <a href="/tubes_basdat/modules/reservasi/list.php" class="btn btn-warning w-100">
-                        <i class="bi bi-calendar-check"></i> Lihat Reservasi
-                    </a>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <a href="/tubes_basdat/modules/pembayaran/list.php" class="btn btn-danger w-100">
+                <div class="col-md-6 mb-3">
+                    <a href="/tubes_basdat/modules/pembayaran/list.php" class="btn btn-danger w-100 btn-lg">
                         <i class="bi bi-credit-card"></i> Verifikasi Pembayaran
+                    </a>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <a href="/tubes_basdat/modules/reservasi/list.php" class="btn btn-info w-100 btn-lg">
+                        <i class="bi bi-door-closed"></i> Cek Kamar & Reservasi
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <a href="/tubes_basdat/modules/tamu/list.php" class="btn btn-primary w-100 btn-lg">
+                        <i class="bi bi-people"></i> Manajemen Tamu
                     </a>
                 </div>
             </div>
