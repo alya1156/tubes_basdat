@@ -7,10 +7,11 @@ define('DB_NAME', 'hotel_db');
 define('DB_PORT', 3306);
 
 // Hotel Info
-define('HOTEL_NAME', 'Pantai Beach Resort');
+define('HOTEL_NAME', 'Grand Hotel Ashri');
 define('HOTEL_PHONE', '+62 812-3456-7890');
-define('HOTEL_EMAIL', 'info@pantaibeach.com');
-define('HOTEL_ADDRESS', 'Jl. Pantai No. 123, Bali');
+define('HOTEL_EMAIL', 'info@grandhotelashri.com');
+define('HOTEL_ADDRESS', 'Jl. Pantai Indah No. 456, Denpasar, Bali');
+define('HOTEL_DESC', 'Nikmati pengalaman menginap mewah di tepi pantai dengan fasilitas world-class dan layanan prima');
 
 // Bank Info
 define('BANK_NAME', 'BCA');

@@ -31,6 +31,13 @@ function logoutAdmin() {
 }
 
 /**
+ * Check admin login status
+ */
+function isAdminLoggedIn() {
+    return isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
+}
+
+/**
  * Check if admin is logged in and session is valid
  */
 function requireAdminLogin() {

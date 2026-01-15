@@ -219,6 +219,7 @@ if ($reservasi) {
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 <?php echo HOTEL_NAME; ?>. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 12px;"><a href="/tubes_basdat/admin/login.php" style="color: #aaa; text-decoration: none;"><i class="bi bi-lock-fill"></i> Admin Login</a></p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

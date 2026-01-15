@@ -152,13 +152,6 @@ function getSessionMessage() {
 }
 
 /**
- * Check admin login
- */
-function isAdminLoggedIn() {
-    return isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
-}
-
-/**
  * Get dashboard statistics
  */
 function getDashboardStats($pdo) {

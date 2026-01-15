@@ -7,13 +7,13 @@ requireAdminLogin();
 
 // Search & Sort
 $search = isset($_GET['search']) ? sanitizeInput($_GET['search']) : '';
-$sort = isset($_GET['sort']) ? sanitizeInput($_GET['sort']) : 'tgl_pesan';
-$order = isset($_GET['order']) ? sanitizeInput($_GET['order']) : 'DESC';
+$sort = isset($_GET['sort']) ? sanitizeInput($_GET['sort']) : 'tgl_masuk';
+$order = isset($_GET['order']) ? sanitizeInput($_GET['order']) : 'ASC';
 
 // Validate sort column
 $allowed_sorts = ['kode_booking', 'nama_tamu', 'tgl_masuk', 'tgl_pesan', 'total_harga', 'status'];
-if (!in_array($sort, $allowed_sorts)) $sort = 'tgl_pesan';
-if (!in_array($order, ['ASC', 'DESC'])) $order = 'DESC';
+if (!in_array($sort, $allowed_sorts)) $sort = 'tgl_masuk';
+if (!in_array($order, ['ASC', 'DESC'])) $order = 'ASC';
 
 $query = "SELECT r.*, t.nama as nama_tamu, k.no_kamar, tp.nama_tipe FROM reservasi r 
           JOIN tamu t ON r.id_tamu = t.id_tamu 

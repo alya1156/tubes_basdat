@@ -142,24 +142,38 @@ INSERT INTO `fasilitas` (`nama_fasilitas`, `icon`) VALUES
 ('Pemanas Air', 'fire'),
 ('Seprai Premium', 'layers');
 
--- Insert room types (Beach-themed)
+-- Insert room types (Beach-themed, 5 types)
 INSERT INTO `tipe_kamar` (`nama_tipe`, `kapasitas`, `harga_malam`, `deskripsi`) VALUES
-('Standard Beach Room', 2, 150000, 'Kamar nyaman dengan pemandangan taman'),
-('Deluxe Ocean View', 2, 250000, 'Kamar mewah dengan pemandangan laut'),
-('Premium Suite Sunset', 4, 450000, 'Suite premium dengan balkon private & sunset view');
+('Standard Beach Room', 2, 150000, 'Kamar nyaman dengan pemandangan taman tropis'),
+('Deluxe Ocean View', 2, 280000, 'Kamar mewah dengan balkon private menghadap laut'),
+('Premium Suite Sunset', 4, 500000, 'Suite premium dengan pemandangan sunset spektakuler'),
+('Family Beach Villa', 6, 750000, 'Villa keluarga dengan kolam renang pribadi'),
+('Honeymoon Romantic Suite', 2, 600000, 'Suite romantis dengan jacuzzi dan pemandangan laut');
 
--- Insert rooms (10 kamar total: 4 Standard, 3 Deluxe, 3 Premium)
+-- Insert 45 kamar (spread across 5 types)
 INSERT INTO `kamar` (`no_kamar`, `id_tipe`, `status`) VALUES
-('101', 1, 'tersedia'),
-('102', 1, 'tersedia'),
-('103', 1, 'terpesan'),
-('104', 1, 'ditempati'),
-('201', 2, 'tersedia'),
-('202', 2, 'tersedia'),
-('203', 2, 'terpesan'),
-('301', 3, 'tersedia'),
-('302', 3, 'ditempati'),
-('303', 3, 'tersedia');
+-- Standard (101-120) - 20 kamar
+('101', 1, 'tersedia'), ('102', 1, 'tersedia'), ('103', 1, 'terpesan'), ('104', 1, 'ditempati'), ('105', 1, 'tersedia'),
+('106', 1, 'tersedia'), ('107', 1, 'terpesan'), ('108', 1, 'ditempati'), ('109', 1, 'tersedia'), ('110', 1, 'tersedia'),
+('111', 1, 'maintenance'), ('112', 1, 'tersedia'), ('113', 1, 'terpesan'), ('114', 1, 'tersedia'), ('115', 1, 'ditempati'),
+('116', 1, 'tersedia'), ('117', 1, 'tersedia'), ('118', 1, 'ditempati'), ('119', 1, 'tersedia'), ('120', 1, 'terpesan'),
+
+-- Deluxe (201-220) - 20 kamar
+('201', 2, 'tersedia'), ('202', 2, 'tersedia'), ('203', 2, 'terpesan'), ('204', 2, 'ditempati'), ('205', 2, 'tersedia'),
+('206', 2, 'tersedia'), ('207', 2, 'ditempati'), ('208', 2, 'tersedia'), ('209', 2, 'terpesan'), ('210', 2, 'tersedia'),
+('211', 2, 'tersedia'), ('212', 2, 'ditempati'), ('213', 2, 'tersedia'), ('214', 2, 'terpesan'), ('215', 2, 'tersedia'),
+('216', 2, 'maintenance'), ('217', 2, 'tersedia'), ('218', 2, 'ditempati'), ('219', 2, 'tersedia'), ('220', 2, 'tersedia'),
+
+-- Premium Suite (301-310) - 10 kamar
+('301', 3, 'tersedia'), ('302', 3, 'ditempati'), ('303', 3, 'tersedia'), ('304', 3, 'tersedia'), ('305', 3, 'terpesan'),
+('306', 3, 'tersedia'), ('307', 3, 'ditempati'), ('308', 3, 'tersedia'), ('309', 3, 'tersedia'), ('310', 3, 'maintenance'),
+
+-- Family Beach Villa (401-410) - 10 kamar
+('401', 4, 'tersedia'), ('402', 4, 'tersedia'), ('403', 4, 'terpesan'), ('404', 4, 'ditempati'), ('405', 4, 'tersedia'),
+('406', 4, 'tersedia'), ('407', 4, 'ditempati'), ('408', 4, 'tersedia'), ('409', 4, 'tersedia'), ('410', 4, 'tersedia'),
+
+-- Honeymoon Suite (501-505) - 5 kamar
+('501', 5, 'tersedia'), ('502', 5, 'ditempati'), ('503', 5, 'tersedia'), ('504', 5, 'tersedia'), ('505', 5, 'tersedia');
 
 -- Insert guest data (15 tamu)
 INSERT INTO `tamu` (`nama`, `no_identitas`, `email`, `no_telp`) VALUES
