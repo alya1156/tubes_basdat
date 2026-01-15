@@ -14,23 +14,24 @@ $rooms = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .navbar-brand { font-weight: 700; font-size: 24px; }
-        .page-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1e; color: #e0e0e0; }
+        .navbar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); box-shadow: 0 2px 4px rgba(212, 175, 55, 0.1); border-bottom: 2px solid #d4af37; }
+        .navbar-brand { font-weight: 700; font-size: 24px; color: #d4af37; }
+        .page-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #d4af37; padding: 40px 0; border-bottom: 2px solid #d4af37; }
+        .page-header h1 { color: #d4af37; }
         .section { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 50px; color: #333; }
-        .room-card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; margin-bottom: 30px; }
-        .room-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .section-title { text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 50px; color: #d4af37; text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+        .room-card { border: 1px solid #d4af37; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); transition: transform 0.3s, box-shadow 0.3s; margin-bottom: 30px; background: #1a1a2e; }
+        .room-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); border-color: #ffd700; }
         .room-card img { width: 100%; height: 300px; object-fit: cover; }
         .room-info { padding: 25px; }
-        .room-title { font-size: 22px; font-weight: 700; margin-bottom: 10px; color: #333; }
-        .room-price { font-size: 26px; color: #667eea; font-weight: 700; margin-bottom: 15px; }
-        .room-capacity { color: #666; font-size: 14px; margin-bottom: 15px; }
-        .room-description { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 8px; padding: 10px 20px; font-weight: 600; }
-        .btn-primary:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
-        .footer { background: #333; color: white; padding: 40px 0; text-align: center; margin-top: 80px; }
+        .room-title { font-size: 22px; font-weight: 700; margin-bottom: 10px; color: #d4af37; }
+        .room-price { font-size: 26px; color: #ffd700; font-weight: 700; margin-bottom: 15px; }
+        .room-capacity { color: #888; font-size: 14px; margin-bottom: 15px; }
+        .room-description { color: #b0b0b0; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        .btn-primary { background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); border: none; border-radius: 8px; padding: 10px 20px; font-weight: 600; color: #1a1a2e; }
+        .btn-primary:hover { background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%); color: #1a1a2e; }
+        .footer { background: #0f0f1e; color: #d4af37; padding: 40px 0; text-align: center; margin-top: 80px; border-top: 2px solid #d4af37; }
     </style>
 </head>
 <body>

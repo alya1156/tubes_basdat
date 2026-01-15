@@ -18,28 +18,31 @@ $msg = getSessionMessage();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #0f0f1e;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e0e0;
         }
         .sidebar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
             padding: 20px 0;
             position: fixed;
             width: 250px;
             left: 0;
             top: 0;
+            border-right: 2px solid #d4af37;
         }
         .sidebar .brand {
             color: white;
             padding: 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid #d4af37;
             margin-bottom: 20px;
         }
         .sidebar .brand h5 {
             margin: 0;
             font-weight: 700;
+            color: #d4af37;
         }
         .sidebar .nav-link {
             color: rgba(255,255,255,0.7);
@@ -50,12 +53,12 @@ $msg = getSessionMessage();
         }
         .sidebar .nav-link:hover,
         .sidebar .nav-link.active {
-            color: white;
-            background: rgba(255,255,255,0.1);
-            border-left-color: white;
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+            border-left-color: #d4af37;
         }
         .sidebar .nav-section {
-            color: rgba(255,255,255,0.5);
+            color: #d4af37;
             font-size: 12px;
             padding: 15px 20px 5px;
             text-transform: uppercase;
@@ -67,43 +70,46 @@ $msg = getSessionMessage();
             padding: 20px;
         }
         .topbar {
-            background: white;
+            background: #1a1a2e;
             padding: 15px 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(212, 175, 55, 0.1);
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid #d4af37;
+            color: #d4af37;
         }
         .stat-card {
-            background: white;
+            background: #1a1a2e;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(212, 175, 55, 0.1);
             margin-bottom: 20px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #d4af37;
+            color: #e0e0e0;
         }
         .stat-card.revenue {
-            border-left-color: #4CAF50;
+            border-left-color: #ffd700;
         }
         .stat-card.occupied {
-            border-left-color: #2196F3;
+            border-left-color: #d4af37;
         }
         .stat-card.pending {
-            border-left-color: #FF9800;
+            border-left-color: #d4af37;
         }
         .stat-card.unpaid {
-            border-left-color: #F44336;
+            border-left-color: #d4af37;
         }
         .stat-card .stat-value {
             font-size: 28px;
             font-weight: 700;
-            color: #333;
+            color: #d4af37;
             margin: 10px 0;
         }
         .stat-card .stat-label {
-            color: #666;
+            color: #b0b0b0;
             font-size: 13px;
         }
         .stat-card .stat-icon {
@@ -244,6 +250,36 @@ $msg = getSessionMessage();
             </div>
         </div>
     </div>
+
+        <!-- Simple Image Gallery -->
+        <?php
+        $galleryDirRel = '/tubes_basdat/uploads/gallery/';
+        $galleryDir = __DIR__ . '/../uploads/gallery/';
+        $galleryImages = [];
+        if (is_dir($galleryDir)) {
+            $files = scandir($galleryDir);
+            foreach ($files as $f) {
+                if (preg_match('/\.(jpe?g|png|gif|webp)$/i', $f)) {
+                    $galleryImages[] = $f;
+                }
+            }
+        }
+        ?>
+
+        <div style="margin-top: 30px;">
+            <h5 style="margin-bottom: 15px;">Galeri Gambar</h5>
+            <?php if (!empty($galleryImages)): ?>
+                <div class="d-flex flex-wrap">
+                    <?php foreach ($galleryImages as $img): ?>
+                        <a href="<?php echo $galleryDirRel . rawurlencode($img); ?>" target="_blank" class="m-1">
+                            <img src="<?php echo $galleryDirRel . rawurlencode($img); ?>" alt="Gambar" style="width:120px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #e9ecef;">
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <div class="text-muted">Belum ada gambar di folder <strong>/uploads/gallery/</strong>.</div>
+            <?php endif; ?>
+        </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

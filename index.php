@@ -15,23 +15,39 @@ $featured_rooms = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #ff6b6b;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #d4af37;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #e0e0e0; background: #0f0f1e; }
+        
+        /* Geometric Pattern Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.03) 30.5%, rgba(212, 175, 55, 0.03) 69%, transparent 69.5%),
+                linear-gradient(-45deg, transparent 30%, rgba(212, 175, 55, 0.03) 30.5%, rgba(212, 175, 55, 0.03) 69%, transparent 69.5%);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
         
         /* Navbar */
-        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); padding: 15px 0; }
+        .navbar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); box-shadow: 0 2px 10px rgba(212, 175, 55, 0.2); padding: 15px 0; border-bottom: 2px solid #d4af37; }
         .navbar-brand { font-weight: 800; font-size: 26px; letter-spacing: -1px; }
         .navbar-nav .nav-link { font-weight: 500; margin: 0 10px; transition: all 0.3s; }
         .navbar-nav .nav-link:hover { color: #ffd700 !important; }
         
         /* Hero Section */
-        .hero-section { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 80px 0; position: relative; overflow: hidden; }
-        .hero-section::before { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: rgba(255,255,255,0.1); border-radius: 50%; }
-        .hero-section::after { content: ''; position: absolute; bottom: -30%; left: 0; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .hero-section { background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%), url('/tubes_basdat/uploads/gallery/hotel-hero.jpg') center/cover no-repeat; color: white; padding: 80px 0; position: relative; overflow: hidden; }
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%); z-index: 0; }
+        .hero-section::after { display: none; }
         .hero-content { position: relative; z-index: 1; }
         .hero-content h1 { font-size: 56px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
         .hero-content .tagline { font-size: 22px; opacity: 0.95; margin-bottom: 10px; font-weight: 500; }
@@ -41,44 +57,45 @@ $featured_rooms = $stmt->fetchAll();
         .hero-image-placeholder i { font-size: 80px; opacity: 0.7; }
         
         /* Features Section */
-        .features { background: #f8f9fa; padding: 60px 0; }
-        .feature-card { text-align: center; padding: 40px 30px; border-radius: 12px; background: white; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s; }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .feature-card i { font-size: 48px; color: var(--primary); margin-bottom: 20px; }
-        .feature-card h5 { font-weight: 700; margin-bottom: 15px; color: #333; }
-        .feature-card p { color: #666; font-size: 14px; line-height: 1.6; }
+        .features { background: #16213e; padding: 60px 0; position: relative; border-top: 2px solid #d4af37; }
+        .features::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><polygon points="50,10 90,90 10,90" fill="none" stroke="%23d4af37" stroke-width="1" opacity="0.1"/></svg>'); opacity: 0.5; pointer-events: none; }
+        .feature-card { text-align: center; padding: 40px 30px; border-radius: 12px; background: #1a1a2e; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1); transition: all 0.3s; border: 1px solid rgba(212, 175, 55, 0.2); position: relative; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); border-color: #d4af37; }
+        .feature-card i { font-size: 48px; color: #d4af37; margin-bottom: 20px; }
+        .feature-card h5 { font-weight: 700; margin-bottom: 15px; color: #d4af37; }
+        .feature-card p { color: #b0b0b0; font-size: 14px; line-height: 1.6; }
         
         /* Rooms Section */
-        .rooms-section { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 42px; font-weight: 800; margin-bottom: 15px; color: #333; }
-        .section-subtitle { text-align: center; color: #666; font-size: 18px; margin-bottom: 50px; }
-        .room-card { border: none; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s; height: 100%; }
-        .room-card:hover { transform: translateY(-15px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
-        .room-image-placeholder { background: linear-gradient(135deg, #e8f4f8 0%, #f0f0f0 100%); height: 220px; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+        .rooms-section { padding: 80px 0; background: #0f0f1e; position: relative; }
+        .section-title { text-align: center; font-size: 42px; font-weight: 800; margin-bottom: 15px; color: #d4af37; text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+        .section-subtitle { text-align: center; color: #b0b0b0; font-size: 18px; margin-bottom: 50px; }
+        .room-card { border: 1px solid #d4af37; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15); transition: all 0.3s; height: 100%; background: #1a1a2e; }
+        .room-card:hover { transform: translateY(-15px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4); border-color: #ffd700; }
+        .room-image-placeholder { background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%); height: 220px; display: flex; align-items: center; justify-content: center; font-size: 60px; color: #d4af37; }
         .room-body { padding: 25px; }
-        .room-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #333; }
-        .room-capacity { color: #999; font-size: 13px; margin-bottom: 12px; }
-        .room-desc { color: #666; font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
-        .room-price { font-size: 28px; font-weight: 800; color: var(--primary); margin-bottom: 15px; }
-        .btn-book { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border: none; border-radius: 8px; padding: 12px 25px; color: white; font-weight: 600; transition: all 0.3s; }
-        .btn-book:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); color: white; }
+        .room-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #d4af37; }
+        .room-capacity { color: #888; font-size: 13px; margin-bottom: 12px; }
+        .room-desc { color: #a0a0a0; font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
+        .room-price { font-size: 28px; font-weight: 800; color: #ffd700; margin-bottom: 15px; }
+        .btn-book { background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); border: none; border-radius: 8px; padding: 12px 25px; color: #1a1a2e; font-weight: 600; transition: all 0.3s; }
+        .btn-book:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.6); color: #1a1a2e; }
         
         /* Gallery Section */
-        .gallery-section { background: #f8f9fa; padding: 80px 0; }
+        .gallery-section { background: #16213e; padding: 80px 0; border-top: 2px solid #d4af37; border-bottom: 2px solid #d4af37; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); aspect-ratio: 1; }
-        .gallery-item-inner { width: 100%; height: 100%; background: linear-gradient(135deg, #e8f4f8 0%, #f0f0f0 100%); display: flex; align-items: center; justify-content: center; font-size: 50px; transition: all 0.3s; }
+        .gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); aspect-ratio: 1; border: 2px solid #d4af37; }
+        .gallery-item-inner { width: 100%; height: 100%; background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; font-size: 50px; color: #d4af37; transition: all 0.3s; }
         .gallery-item:hover .gallery-item-inner { transform: scale(1.05); }
         
         /* Footer */
-        .footer { background: #2c3e50; color: white; padding: 50px 0 20px; }
-        .footer-col h6 { font-weight: 700; margin-bottom: 20px; color: var(--primary); }
-        .footer-col p { font-size: 14px; line-height: 1.8; color: #bbb; margin: 8px 0; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 30px; padding-top: 20px; text-align: center; color: #999; font-size: 13px; }
+        .footer { background: #0f0f1e; color: white; padding: 50px 0 20px; border-top: 2px solid #d4af37; }
+        .footer-col h6 { font-weight: 700; margin-bottom: 20px; color: #d4af37; }
+        .footer-col p { font-size: 14px; line-height: 1.8; color: #888; margin: 8px 0; }
+        .footer-bottom { border-top: 1px solid rgba(212, 175, 55, 0.2); margin-top: 30px; padding-top: 20px; text-align: center; color: #666; font-size: 13px; }
         
         /* Buttons */
-        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border: none; border-radius: 8px; padding: 12px 28px; font-weight: 600; transition: all 0.3s; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); color: white; }
+        .btn-primary { background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); border: none; border-radius: 8px; padding: 12px 28px; font-weight: 600; transition: all 0.3s; color: #1a1a2e; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6); color: #1a1a2e; }
     </style>
 </head>
 <body>
@@ -114,10 +131,18 @@ $featured_rooms = $stmt->fetchAll();
                 </div>
                 <div class="col-lg-6">
                     <div class="hero-image">
-                        <div class="hero-image-placeholder">
-                            <i class="bi bi-image"></i>
-                            <p style="color: rgba(255,255,255,0.7); margin-top: 20px;">Pemandangan Hotel Galasa</p>
-                        </div>
+                        <?php
+                        $heroImagePath = '/tubes_basdat/uploads/gallery/hotel-hero.jpg';
+                        $heroImageExists = file_exists(__DIR__ . '/uploads/gallery/hotel-hero.jpg');
+                        ?>
+                        <?php if ($heroImageExists): ?>
+                            <img src="<?php echo $heroImagePath; ?>" alt="Pemandangan Hotel Galasa" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+                        <?php else: ?>
+                            <div class="hero-image-placeholder">
+                                <i class="bi bi-image"></i>
+                                <p style="color: rgba(255,255,255,0.7); margin-top: 20px;">Pemandangan Hotel Galasa</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

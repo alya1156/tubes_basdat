@@ -23,20 +23,20 @@ $days = calculateDays($reservasi['tgl_masuk'], $reservasi['tgl_keluar']);
         @media print {
             .no-print { display: none; }
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .navbar-brand { font-weight: 700; font-size: 24px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1e; color: #e0e0e0; }
+        .navbar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 2px solid #d4af37; }
+        .navbar-brand { font-weight: 700; font-size: 24px; color: #d4af37; }
         .section { padding: 40px 0; }
-        .struk-container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
-        .struk-header { text-align: center; border-bottom: 2px solid #667eea; padding-bottom: 20px; margin-bottom: 30px; }
-        .struk-header h2 { color: #667eea; font-weight: 700; }
+        .struk-container { background: #1a1a2e; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); max-width: 600px; margin: 0 auto; border: 2px solid #d4af37; }
+        .struk-header { text-align: center; border-bottom: 2px solid #d4af37; padding-bottom: 20px; margin-bottom: 30px; }
+        .struk-header h2 { color: #d4af37; font-weight: 700; }
         .struk-section { margin-bottom: 30px; }
-        .struk-label { font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase; }
-        .struk-value { font-size: 16px; color: #333; margin-bottom: 15px; }
-        .struk-line { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; }
-        .struk-line.total { border-bottom: 2px solid #667eea; font-weight: 700; font-size: 18px; color: #667eea; }
-        .alert-success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
-        .footer { background: #333; color: white; padding: 40px 0; text-align: center; margin-top: 80px; }
+        .struk-label { font-weight: 600; color: #b0b0b0; font-size: 12px; text-transform: uppercase; }
+        .struk-value { font-size: 16px; color: #d4af37; margin-bottom: 15px; }
+        .struk-line { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; }
+        .struk-line.total { border-bottom: 2px solid #d4af37; font-weight: 700; font-size: 18px; color: #ffd700; }
+        .alert-success { background: rgba(212, 175, 55, 0.1); border: 2px solid #d4af37; color: #d4af37; }
+        .footer { background: #0f0f1e; color: #d4af37; padding: 40px 0; text-align: center; margin-top: 80px; border-top: 2px solid #d4af37; }
         .btn-group-vertical { gap: 10px; }
     </style>
 </head>

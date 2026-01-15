@@ -47,32 +47,38 @@ if ($step == 2 && $id_tipe > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        :root { --primary: #667eea; --secondary: #764ba2; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8f9fa; }
-        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .navbar-brand { font-weight: 700; font-size: 24px; }
-        .page-header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 40px 0; }
+        :root { --primary: #1a1a2e; --secondary: #16213e; --accent: #d4af37; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1e; color: #e0e0e0; }
+        .navbar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); box-shadow: 0 2px 4px rgba(212, 175, 55, 0.1); border-bottom: 2px solid #d4af37; }
+        .navbar-brand { font-weight: 700; font-size: 24px; color: #d4af37; }
+        .page-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #d4af37; padding: 40px 0; border-bottom: 2px solid #d4af37; }
+        .page-header h1 { color: #d4af37; }
         .section { padding: 40px 0; }
         .step-indicator { display: flex; justify-content: space-between; margin-bottom: 40px; }
         .step-item { flex: 1; text-align: center; padding: 15px; }
-        .step-item.active .step-number { background: var(--primary); color: white; }
-        .step-item .step-number { width: 50px; height: 50px; border-radius: 50%; background: #ddd; color: #999; font-weight: 700; font-size: 24px; line-height: 50px; margin: 0 auto 10px; }
-        .step-item .step-label { font-weight: 600; color: #333; }
-        .step-divider { flex-grow: 1; border-top: 3px solid #ddd; margin: 20px 0; }
-        .room-card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s; margin-bottom: 20px; cursor: pointer; }
-        .room-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .room-card.selected { border: 3px solid var(--primary); }
-        .room-image-placeholder { background: linear-gradient(135deg, #e8f4f8 0%, #f0f0f0 100%); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #ccc; }
+        .step-item.active .step-number { background: #d4af37; color: #1a1a2e; }
+        .step-item .step-number { width: 50px; height: 50px; border-radius: 50%; background: #333; color: #888; font-weight: 700; font-size: 24px; line-height: 50px; margin: 0 auto 10px; border: 2px solid #d4af37; }
+        .step-item .step-label { font-weight: 600; color: #d4af37; }
+        .step-divider { flex-grow: 1; border-top: 3px solid #d4af37; margin: 20px 0; }
+        .room-card { border: 1px solid #d4af37; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); transition: all 0.3s; margin-bottom: 20px; cursor: pointer; background: #1a1a2e; }
+        .room-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); border-color: #ffd700; }
+        .room-card.selected { border: 3px solid #d4af37; box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+        .room-image-placeholder { background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #d4af37; }
         .room-info { padding: 20px; }
-        .room-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #333; }
-        .room-capacity { font-size: 13px; color: #999; margin-bottom: 10px; }
-        .room-desc { font-size: 13px; color: #666; margin-bottom: 15px; line-height: 1.5; }
-        .room-price { font-size: 22px; color: var(--primary); font-weight: 700; }
-        .room-total { font-size: 12px; color: #999; margin-top: 5px; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border: none; }
-        .btn-primary:hover { color: white; }
-        .form-section { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        .footer { background: #2c3e50; color: white; padding: 40px 0; text-align: center; margin-top: 80px; }
+        .room-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #d4af37; }
+        .room-capacity { font-size: 13px; color: #888; margin-bottom: 10px; }
+        .room-desc { font-size: 13px; color: #b0b0b0; margin-bottom: 15px; line-height: 1.5; }
+        .room-price { font-size: 22px; color: #ffd700; font-weight: 700; }
+        .room-total { font-size: 12px; color: #888; margin-top: 5px; }
+        .btn-primary { background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); border: none; color: #1a1a2e; }
+        .btn-primary:hover { color: #1a1a2e; }
+        .form-section { background: #1a1a2e; border-radius: 12px; padding: 30px; box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1); margin-bottom: 30px; border: 1px solid #d4af37; }
+        .form-section h5 { color: #d4af37; }
+        .form-label { color: #d4af37; }
+        .form-control { background: #16213e; border: 1px solid #d4af37; color: #e0e0e0; }
+        .form-control:focus { background: #16213e; border-color: #ffd700; color: #e0e0e0; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .alert { background: rgba(212, 175, 55, 0.1); border: 2px solid #d4af37; color: #d4af37; }
+        .footer { background: #0f0f1e; color: #d4af37; padding: 40px 0; text-align: center; margin-top: 80px; border-top: 2px solid #d4af37; }
     </style>
 </head>
 <body>

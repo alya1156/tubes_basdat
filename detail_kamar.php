@@ -32,17 +32,19 @@ $photos = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .navbar-brand { font-weight: 700; font-size: 24px; }
-        .page-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1e; color: #e0e0e0; }
+        .navbar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 2px solid #d4af37; }
+        .navbar-brand { font-weight: 700; font-size: 24px; color: #d4af37; }
+        .page-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #d4af37; padding: 40px 0; border-bottom: 2px solid #d4af37; }
+        .page-header h1 { color: #d4af37; }
         .section { padding: 40px 0; }
-        .carousel-inner { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .carousel-inner { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); border: 2px solid #d4af37; }
         .carousel-item img { height: 500px; object-fit: cover; }
-        .detail-section { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .detail-section { background: #1a1a2e; padding: 30px; border-radius: 12px; box-shadow: 0 2px 4px rgba(212, 175, 55, 0.1); margin-bottom: 30px; border: 1px solid #d4af37; }
+        .detail-section h5 { color: #d4af37; }
         .facility-item { display: inline-block; margin-right: 20px; margin-bottom: 15px; }
-        .facility-icon { font-size: 24px; color: #667eea; margin-right: 8px; }
-        .footer { background: #333; color: white; padding: 40px 0; text-align: center; margin-top: 80px; }
+        .facility-icon { font-size: 24px; color: #d4af37; margin-right: 8px; }
+        .footer { background: #0f0f1e; color: #d4af37; padding: 40px 0; text-align: center; margin-top: 80px; border-top: 2px solid #d4af37; }
     </style>
 </head>
 <body>

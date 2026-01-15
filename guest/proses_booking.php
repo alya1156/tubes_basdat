@@ -68,22 +68,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        :root { --primary: #667eea; --secondary: #764ba2; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8f9fa; }
-        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); }
-        .navbar-brand { font-weight: 700; font-size: 24px; }
-        .page-header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 40px 0; }
+        :root { --primary: #1a1a2e; --secondary: #16213e; --accent: #d4af37; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1e; color: #e0e0e0; }
+        .navbar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 2px solid #d4af37; }
+        .navbar-brand { font-weight: 700; font-size: 24px; color: #d4af37; }
+        .page-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #d4af37; padding: 40px 0; border-bottom: 2px solid #d4af37; }
+        .page-header h1 { color: #d4af37; }
         .section { padding: 40px 0; }
-        .card { border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 12px; }
-        .form-section { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .summary-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 4px solid var(--primary); }
-        .summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+        .card { border: 1px solid #d4af37; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); border-radius: 12px; background: #1a1a2e; color: #e0e0e0; }
+        .form-section { background: #1a1a2e; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); margin-bottom: 30px; border: 1px solid #d4af37; }
+        .summary-box { background: #1a1a2e; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); border-left: 4px solid #d4af37; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333; }
         .summary-row:last-child { border-bottom: none; }
-        .summary-label { color: #999; font-size: 13px; }
-        .summary-value { font-weight: 600; color: #333; }
-        .summary-total { font-size: 20px; color: var(--primary); font-weight: 700; margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--primary); }
-        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border: none; }
-        .footer { background: #2c3e50; color: white; padding: 40px 0; text-align: center; margin-top: 80px; }
+        .summary-label { color: #888; font-size: 13px; }
+        .summary-value { font-weight: 600; color: #d4af37; }
+        .summary-total { font-size: 20px; color: #ffd700; font-weight: 700; margin-top: 15px; padding-top: 15px; border-top: 2px solid #d4af37; }
+        .btn-primary { background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); border: none; color: #1a1a2e; }
+        .footer { background: #0f0f1e; color: #d4af37; padding: 40px 0; text-align: center; margin-top: 80px; border-top: 2px solid #d4af37; }
     </style>
 </head>
 <body>
