@@ -46,7 +46,7 @@ $featured_rooms = $stmt->fetchAll();
         
         /* Hero Section */
         .hero-section { background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%), 
-        url('/tubes_basdat/uploads/gallery/hotel-db.jpg') center/cover no-repeat; color: white; padding: 80px 0; 
+        url('/tubes_basdat/uploads/gallery/hotel-hero.jpg') center/cover no-repeat; color: white; padding: 80px 0; 
         position: relative; overflow: hidden; }
         .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: 
         radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%), 
@@ -136,8 +136,8 @@ $featured_rooms = $stmt->fetchAll();
                 <div class="col-lg-6">
                     <div class="hero-image">
                         <?php
-                        $heroImagePath = '/tubes_basdat/uploads/gallery/hotel-hero.jpg';
-                        $heroImageExists = file_exists(__DIR__ . '/uploads/gallery/hotel-hero.jpg');
+                        $heroImagePath = '/tubes_basdat/uploads/gallery/hotel-db.jpg';
+                        $heroImageExists = file_exists(__DIR__ . '/uploads/gallery/hotel-db.jpg');
                         ?>
                         <?php if ($heroImageExists): ?>
                             <img src="<?php echo $heroImagePath; ?>" alt="Pemandangan Hotel Galasa" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
