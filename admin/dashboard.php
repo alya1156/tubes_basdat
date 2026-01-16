@@ -56,7 +56,7 @@ $msg = getSessionMessage();
         }
         .sidebar .nav-section {
             color: rgba(255,255,255,0.5);
-            font-size: 12px;
+            font-size: 12px;        
             padding: 15px 20px 5px;
             text-transform: uppercase;
             font-weight: 600;
