@@ -3,5 +3,5 @@ require_once '../includes/config.php';
 require_once '../includes/auth.php';
 
 logoutAdmin();
-header('Location: /tubes_basdat/admin/login.php?logout=1');
+header('Location: /tubes_basdat/');
 exit;

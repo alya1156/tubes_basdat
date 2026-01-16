@@ -63,7 +63,7 @@ $featured_rooms = $stmt->fetchAll();
         /* Features Section */
         .features { background: #16213e; padding: 60px 0; position: relative; border-top: 2px solid #d4af37; }
         .features::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><polygon points="50,10 90,90 10,90" fill="none" stroke="%23d4af37" stroke-width="1" opacity="0.1"/></svg>'); opacity: 0.5; pointer-events: none; }
-        .feature-card { text-align: center; padding: 40px 30px; border-radius: 12px; background: #1a1a2e; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1); transition: all 0.3s; border: 1px solid rgba(212, 175, 55, 0.2); position: relative; }
+        .feature-card { text-align: center; padding: 40px 30px; border-radius: 12px; background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(22, 33, 62, 0.7) 100%), url('/tubes_basdat/uploads/maps/location-map.jpg') center/cover no-repeat; background-color: #1a1a2e; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1); transition: all 0.3s; border: 1px solid rgba(212, 175, 55, 0.2); position: relative; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); border-color: #d4af37; }
         .feature-card i { font-size: 48px; color: #d4af37; margin-bottom: 20px; }
         .feature-card h5 { font-weight: 700; margin-bottom: 15px; color: #d4af37; }

@@ -2,6 +2,8 @@
 require_once '../includes/config.php';
 require_once '../includes/functions.php';
 
+$page = 'check_status'; // Variabel untuk menandai halaman aktif
+
 $bookingCode = '';
 $reservasi = null;
 $error = '';
@@ -64,9 +66,9 @@ if ($reservasi) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/tubes_basdat/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/tubes_basdat/guest/booking.php">Booking</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/tubes_basdat/guest/check_status.php">Cek Status</a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo ($page === 'home') ? 'active' : ''; ?>" href="/tubes_basdat/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo ($page === 'booking') ? 'active' : ''; ?>" href="/tubes_basdat/guest/booking.php">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo ($page === 'check_status') ? 'active' : ''; ?>" href="/tubes_basdat/guest/check_status.php">Cek Status</a></li>
                 </ul>
             </div>
         </div>
