@@ -58,7 +58,7 @@ $msg = getSessionMessage();
             border-left-color: #d4af37;
         }
         .sidebar .nav-section {
-            color: #d4af37;
+            color: #967EC4;
             font-size: 12px;
             padding: 15px 20px 5px;
             text-transform: uppercase;
