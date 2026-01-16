@@ -31,22 +31,27 @@ if ($reservasi) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .navbar-brand { font-weight: 700; font-size: 24px; }
-        .page-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1e; color: #e0e0e0; }
+        .navbar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 2px solid #d4af37; }
+        .navbar-brand { font-weight: 700; font-size: 24px; color: #d4af37; }
+        .page-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #d4af37; padding: 40px 0; border-bottom: 2px solid #d4af37; }
+        .page-header h1 { color: #d4af37; }
         .section { padding: 40px 0; }
-        .search-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto 40px; }
-        .result-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 700px; margin: 0 auto; }
+        .search-box { background: #1a1a2e; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); max-width: 500px; margin: 0 auto 40px; border: 1px solid #d4af37; }
+        .search-box h5 { color: #d4af37; }
+        .search-box label { color: #d4af37; }
+        .form-control { background: #16213e; border: 1px solid #d4af37; color: #e0e0e0; }
+        .form-control:focus { background: #16213e; border-color: #ffd700; color: #e0e0e0; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .result-box { background: #1a1a2e; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1); max-width: 700px; margin: 0 auto; border: 1px solid #d4af37; }
         .status-badge { display: inline-block; padding: 8px 16px; border-radius: 20px; font-weight: 600; margin: 5px 0; }
-        .status-pending { background: #fff3cd; color: #856404; }
-        .status-konfirmasi { background: #d4edda; color: #155724; }
-        .status-checked-in { background: #cfe2ff; color: #084298; }
-        .status-checked-out { background: #d1e7dd; color: #0f5132; }
-        .footer { background: #333; color: white; padding: 40px 0; text-align: center; margin-top: 80px; }
-        .info-line { padding: 12px 0; border-bottom: 1px solid #eee; }
-        .info-label { font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase; }
-        .info-value { font-size: 16px; color: #333; margin-top: 5px; }
+        .status-pending { background: rgba(212, 175, 55, 0.2); color: #d4af37; border: 1px solid #d4af37; }
+        .status-konfirmasi { background: rgba(76, 175, 80, 0.2); color: #81c784; border: 1px solid #81c784; }
+        .status-checked-in { background: rgba(33, 150, 243, 0.2); color: #64b5f6; border: 1px solid #64b5f6; }
+        .status-checked-out { background: rgba(76, 175, 80, 0.2); color: #81c784; border: 1px solid #81c784; }
+        .footer { background: #0f0f1e; color: #d4af37; padding: 40px 0; text-align: center; margin-top: 80px; border-top: 2px solid #d4af37; }
+        .info-line { padding: 12px 0; border-bottom: 1px solid #333; }
+        .info-label { font-weight: 600; color: #888; font-size: 12px; text-transform: uppercase; }
+        .info-value { font-size: 16px; color: #d4af37; margin-top: 5px; }
     </style>
 </head>
 <body>

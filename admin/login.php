@@ -40,9 +40,9 @@ if (isset($_GET['timeout'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #ff6b6b;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #d4af37;
         }
         
         * {
@@ -62,29 +62,23 @@ if (isset($_GET['timeout'])) {
             overflow: hidden;
         }
         
-        /* Decorative background elements */
+        /* Geometric Pattern Background */
         body::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.05) 30.5%, rgba(212, 175, 55, 0.05) 69%, transparent 69.5%),
+                linear-gradient(-45deg, transparent 30%, rgba(212, 175, 55, 0.05) 30.5%, rgba(212, 175, 55, 0.05) 69%, transparent 69.5%);
+            background-size: 60px 60px;
             z-index: 0;
         }
         
         body::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: 0;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            z-index: 0;
+            display: none;
         }
         
         .login-wrapper {
@@ -96,11 +90,13 @@ if (isset($_GET['timeout'])) {
         }
         
         .login-card {
-            background: white;
+            background: #1a1a2e;
             border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             padding: 45px;
             backdrop-filter: blur(10px);
+            border: 2px solid #d4af37;
+            color: #e0e0e0;
         }
         
         .login-header {
@@ -112,18 +108,25 @@ if (isset($_GET['timeout'])) {
             width: 60px;
             height: 60px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
-            color: white;
+            color: #1a1a2e;
         }
         
         .login-header h1 {
             font-size: 28px;
             font-weight: 800;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+        
+        .login-header p {
+            color: #b0b0b0;
+        }
             color: #333;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
