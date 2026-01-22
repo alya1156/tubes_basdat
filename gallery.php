@@ -56,16 +56,24 @@ require_once 'includes/functions.php';
         <div class="container">
             <?php 
                 $galleryImages = [];
-                // Scan gallery folder untuk gambar galeri
-                for ($i = 1; $i <= 20; $i++) {
-                    $imagePath = 'uploads/gallery/galeri hotel' . $i . '.jpg';
-                    if (file_exists($imagePath)) {
-                        $galleryImages[] = [
-                            'path' => $imagePath,
-                            'name' => 'Galeri ' . $i
-                        ];
+                // Scan gallery folder untuk semua gambar
+                $galleryDir = 'uploads/gallery';
+                if (is_dir($galleryDir)) {
+                    $files = scandir($galleryDir);
+                    foreach ($files as $file) {
+                        if ($file != '.' && $file != '..') {
+                            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+                            if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif', 'webp'])) {
+                                $galleryImages[] = [
+                                    'path' => $galleryDir . '/' . $file,
+                                    'name' => pathinfo($file, PATHINFO_FILENAME)
+                                ];
+                            }
+                        }
                     }
                 }
+                // Sort gambar berdasarkan nama
+                sort($galleryImages);
             ?>
             <?php if (count($galleryImages) > 0): ?>
                 <div class="gallery-grid">
