@@ -98,7 +98,15 @@ $photos = $stmt->fetchAll();
                             <?php endif; ?>
                         </div>
                     <?php else: ?>
-                        <img src="<?php echo UPLOAD_URL; ?>tipe_kamar/<?php echo htmlspecialchars($roomType['foto_cover']); ?>" class="img-fluid" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <?php 
+                            $imagePath = 'uploads/gallery/' . htmlspecialchars($roomType['nama_tipe']) . '.jpg';
+                            $imageExists = file_exists($imagePath);
+                        ?>
+                        <?php if ($imageExists): ?>
+                            <img src="<?php echo $imagePath; ?>" class="img-fluid" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <?php else: ?>
+                            <img src="https://via.placeholder.com/600x500?text=<?php echo urlencode($roomType['nama_tipe']); ?>" class="img-fluid" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <?php endif; ?>
                     <?php endif; ?>
 
                     <!-- Description -->
