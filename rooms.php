@@ -68,7 +68,7 @@ $rooms = $stmt->fetchAll();
                     <div class="col-md-6 col-lg-4">
                         <div class="card room-card">
                             <?php if ($room['foto_cover']): ?>
-                                <img src="<?php echo UPLOAD_URL; ?>tipe_kamar/<?php echo htmlspecialchars($room['foto_cover']); ?>" alt="<?php echo htmlspecialchars($room['nama_tipe']); ?>">
+                                <img src="<?php echo"uploads/gallery/standard-beach-room.jpg"; ?>tipe_kamar/<?php echo htmlspecialchars($room['foto_cover']); ?>" alt="<?php echo htmlspecialchars($room['nama_tipe']); ?>">
                             <?php else: ?>
                                 <img src="https://via.placeholder.com/400x300?text=<?php echo urlencode($room['nama_tipe']); ?>" alt="<?php echo htmlspecialchars($room['nama_tipe']); ?>">
                             <?php endif; ?>
