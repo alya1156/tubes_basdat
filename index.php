@@ -200,7 +200,10 @@ $featured_rooms = $stmt->fetchAll();
                     <div class="col-md-6 col-lg-4">
                         <div class="room-card">
                             <div class="room-image-placeholder">
-                                <i class="bi bi-door-closed"></i>
+                                <img src="uploads/gallery/standard-beach-room.jpg"
+     class="room-img"
+     alt="Standard Beach Room">
+
                             </div>
                             <div class="room-body">
                                 <h5 class="room-title"><?php echo htmlspecialchars($room['nama_tipe']); ?></h5>
