@@ -1,9 +1,6 @@
 <?php
 require_once 'includes/config.php';
 require_once 'includes/functions.php';
-
-$stmt = $pdo->query("SELECT * FROM galeri_hotel ORDER BY urutan ASC");
-$gallery = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,17 +54,30 @@ $gallery = $stmt->fetchAll();
     <!-- Gallery Section -->
     <section class="section">
         <div class="container">
-            <?php if (count($gallery) > 0): ?>
+            <?php 
+                $galleryImages = [];
+                // Scan gallery folder untuk gambar galeri
+                for ($i = 1; $i <= 15; $i++) {
+                    $imagePath = 'uploads/gallery/galeri hotel' . $i . '.jpg';
+                    if (file_exists($imagePath)) {
+                        $galleryImages[] = [
+                            'path' => $imagePath,
+                            'name' => 'Galeri ' . $i
+                        ];
+                    }
+                }
+            ?>
+            <?php if (count($galleryImages) > 0): ?>
                 <div class="gallery-grid">
-                    <?php foreach ($gallery as $photo): ?>
-                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#photoModal<?php echo $photo['id_galeri']; ?>">
-                            <img src="<?php echo UPLOAD_URL; ?>gallery/<?php echo htmlspecialchars($photo['foto_path']); ?>" alt="Gallery">
+                    <?php foreach ($galleryImages as $index => $photo): ?>
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#photoModal<?php echo $index; ?>" style="cursor: pointer;">
+                            <img src="<?php echo $photo['path']; ?>" alt="<?php echo $photo['name']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div class="modal fade" id="photoModal<?php echo $photo['id_galeri']; ?>" tabindex="-1">
+                        <div class="modal fade" id="photoModal<?php echo $index; ?>" tabindex="-1">
                             <div class="modal-dialog modal-xl modal-dialog-centered">
                                 <div class="modal-content" style="background: transparent; border: none;">
                                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                                    <img src="<?php echo UPLOAD_URL; ?>gallery/<?php echo htmlspecialchars($photo['foto_path']); ?>" style="width: 100%; border-radius: 12px;">
+                                    <img src="<?php echo $photo['path']; ?>" style="width: 100%; border-radius: 12px;">
                                 </div>
                             </div>
                         </div>

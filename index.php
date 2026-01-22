@@ -239,10 +239,27 @@ $featured_rooms = $stmt->fetchAll();
             <p class="section-subtitle">Jelajahi keindahan fasilitas Hotel Galasa</p>
             
             <div class="gallery-grid">
-                <?php for ($i = 0; $i < 6; $i++): ?>
-                    <div class="gallery-item">
-                        <div class="gallery-item-inner">
-                            <i class="bi bi-image"></i>
+                <?php 
+                    $galleryImages = [];
+                    for ($i = 1; $i <= 12; $i++) {
+                        $imagePath = 'uploads/gallery/galeri hotel' . $i . '.jpg';
+                        if (file_exists($imagePath)) {
+                            $galleryImages[] = $imagePath;
+                        }
+                    }
+                    
+                    // Display up to 10 images on home page
+                    for ($i = 0; $i < min(10, count($galleryImages)); $i++):
+                ?>
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal<?php echo $i; ?>" style="cursor: pointer;">
+                        <img src="<?php echo $galleryImages[$i]; ?>" alt="Galeri Hotel" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="modal fade" id="galleryModal<?php echo $i; ?>" tabindex="-1">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content" style="background: transparent; border: none;">
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                <img src="<?php echo $galleryImages[$i]; ?>" style="width: 100%; border-radius: 12px;">
+                            </div>
                         </div>
                     </div>
                 <?php endfor; ?>
