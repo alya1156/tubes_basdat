@@ -241,7 +241,7 @@ $featured_rooms = $stmt->fetchAll();
             <div class="gallery-grid">
                 <?php 
                     $galleryImages = [];
-                    for ($i = 1; $i <= 12; $i++) {
+                    for ($i = 1; $i <= 20; $i++) {
                         $imagePath = 'uploads/gallery/galeri hotel' . $i . '.jpg';
                         if (file_exists($imagePath)) {
                             $galleryImages[] = $imagePath;

@@ -57,7 +57,7 @@ require_once 'includes/functions.php';
             <?php 
                 $galleryImages = [];
                 // Scan gallery folder untuk gambar galeri
-                for ($i = 1; $i <= 15; $i++) {
+                for ($i = 1; $i <= 20; $i++) {
                     $imagePath = 'uploads/gallery/galeri hotel' . $i . '.jpg';
                     if (file_exists($imagePath)) {
                         $galleryImages[] = [
