@@ -163,9 +163,17 @@ if ($step == 2 && $id_tipe > 0) {
                             <?php foreach ($available_rooms as $room): ?>
                                 <div class="col-md-6 col-lg-4">
                                     <div class="room-card" onclick="selectRoomType(<?php echo $room['id_tipe']; ?>)">
-                                        <div class="room-image-placeholder">
-                                            <i class="bi bi-door-closed"></i>
-                                        </div>
+                                        <?php 
+                                            $imagePath = '../uploads/gallery/' . htmlspecialchars($room['nama_tipe']) . '.jpg';
+                                            $imageExists = file_exists($imagePath);
+                                        ?>
+                                        <?php if ($imageExists): ?>
+                                            <img src="<?php echo $imagePath; ?>" alt="<?php echo htmlspecialchars($room['nama_tipe']); ?>" style="width: 100%; height: 200px; object-fit: cover;">
+                                        <?php else: ?>
+                                            <div class="room-image-placeholder">
+                                                <i class="bi bi-door-closed"></i>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="room-info">
                                             <h6 class="room-title"><?php echo htmlspecialchars($room['nama_tipe']); ?></h6>
                                             <p class="room-capacity"><i class="bi bi-people"></i> Kapasitas: <?php echo $room['kapasitas']; ?> orang</p>

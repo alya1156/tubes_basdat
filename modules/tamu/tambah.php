@@ -54,13 +54,22 @@ $msg = getSessionMessage();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; }
-        .sidebar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px 0; position: fixed; width: 250px; left: 0; top: 0; }
-        .sidebar .brand { color: white; padding: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+        body { background-color: #0f0f1e; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .sidebar { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; padding: 20px 0; position: fixed; width: 250px; left: 0; top: 0; border-right: 2px solid #d4af37; }
+        .sidebar .brand { color: white; padding: 20px; text-align: center; border-bottom: 2px solid #d4af37; margin-bottom: 20px; cursor: pointer; }
+        .sidebar .brand h5 { margin: 0; font-weight: 700; color: #d4af37; }
         .sidebar .nav-link { color: rgba(255,255,255,0.7); padding: 12px 20px; border-left: 3px solid transparent; transition: all 0.3s; font-size: 14px; }
-        .sidebar .nav-link:hover, .sidebar .nav-link.active { color: white; background: rgba(255,255,255,0.1); border-left-color: white; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { color: #d4af37; background: rgba(212, 175, 55, 0.1); border-left-color: #d4af37; }
         .main-content { margin-left: 250px; padding: 20px; }
-        .card { border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-radius: 8px; }
+        .card { background: #1a1a2e; border: 1px solid #d4af37; box-shadow: 0 2px 4px rgba(212, 175, 55, 0.1); border-radius: 8px; color: #e0e0e0; }
+        .form-label { color: #d4af37; font-weight: 600; }
+        .form-control { background: #16213e; border-color: #d4af37; color: #e0e0e0; }
+        .form-control:focus { background: #16213e; border-color: #ffd700; color: #e0e0e0; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .alert-danger { background: rgba(220, 53, 69, 0.1); border-color: #dc3545; color: #ff6b6b; }
+        .btn-primary { background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); border: none; color: #1a1a2e; font-weight: 600; }
+        .btn-primary:hover { background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%); color: #1a1a2e; }
+        .btn-secondary { background: #16213e; border-color: #d4af37; color: #d4af37; }
+        .btn-secondary:hover { background: #1a1a2e; border-color: #ffd700; color: #ffd700; }
     </style>
 </head>
 <body>
@@ -68,9 +77,10 @@ $msg = getSessionMessage();
         <div class="brand"><h5><?php echo HOTEL_NAME; ?></h5></div>
         <nav class="nav flex-column">
             <a href="/tubes_basdat/admin/dashboard.php" class="nav-link"><i class="bi bi-speedometer2"></i> Dashboard</a>
-            <a href="/tubes_basdat/modules/tamu/list.php" class="nav-link active"><i class="bi bi-people"></i> Manajemen Tamu</a>
-            <a href="/tubes_basdat/modules/reservasi/list.php" class="nav-link"><i class="bi bi-door-closed"></i> Cek Kamar & Reservasi</a>
-            <a href="/tubes_basdat/modules/pembayaran/list.php" class="nav-link"><i class="bi bi-credit-card"></i> Verifikasi Pembayaran</a>
+            <a href="/tubes_basdat/modules/kamar/list.php" class="nav-link"><i class="bi bi-door-closed"></i> Cek Kamar</a>
+            <a href="/tubes_basdat/modules/reservasi/list.php" class="nav-link"><i class="bi bi-calendar-check"></i> Reservasi</a>
+            <a href="/tubes_basdat/modules/pembayaran/list.php" class="nav-link"><i class="bi bi-credit-card"></i> Pembayaran</a>
+            <a href="/tubes_basdat/modules/tamu/list.php" class="nav-link active"><i class="bi bi-people"></i> Tamu</a>
             <a href="/tubes_basdat/admin/logout.php" class="nav-link" onclick="return confirm('Logout?')"><i class="bi bi-box-arrow-left"></i> Logout</a>
         </nav>
     </div>
