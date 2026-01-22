@@ -199,9 +199,17 @@ $featured_rooms = $stmt->fetchAll();
                 <?php foreach ($featured_rooms as $room): ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="room-card">
-                            <div class="room-image-placeholder">
-                                <img src="uploads/gallery/standard-beach-room.jpg">
-                            </div>
+                            <?php 
+                                $imagePath = 'uploads/gallery/' . htmlspecialchars($room['nama_tipe']) . '.jpg';
+                                $imageExists = file_exists($imagePath);
+                            ?>
+                            <?php if ($imageExists): ?>
+                                <img src="<?php echo $imagePath; ?>" alt="<?php echo htmlspecialchars($room['nama_tipe']); ?>" style="width: 100%; height: 220px; object-fit: cover;">
+                            <?php else: ?>
+                                <div class="room-image-placeholder">
+                                    <i class="bi bi-image"></i>
+                                </div>
+                            <?php endif; ?>
                             <div class="room-body">
                                 <h5 class="room-title"><?php echo htmlspecialchars($room['nama_tipe']); ?></h5>
                                 <p class="room-capacity"><i class="bi bi-people"></i> Kapasitas: <?php echo $room['kapasitas']; ?> orang</p>
