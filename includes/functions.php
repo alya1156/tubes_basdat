@@ -157,15 +157,21 @@ function getSessionMessage() {
 function getDashboardStats($pdo) {
     $today = date('Y-m-d');
     
-    // Revenue today
+    // Revenue today — consider payments where payment date, verification date,
+    // or creation date falls on today (handles cases where tgl_bayar may be NULL)
     $revenueQuery = "
-        SELECT SUM(jumlah) as total
+        SELECT COALESCE(SUM(jumlah), 0) as total
         FROM pembayaran
-        WHERE DATE(tgl_bayar) = ? AND status = 'lunas'
+        WHERE status = 'lunas'
+        AND (
+            DATE(tgl_bayar) = ?
+            OR DATE(tgl_verifikasi) = ?
+            OR DATE(created_at) = ?
+        )
     ";
     $revenueStmt = $pdo->prepare($revenueQuery);
-    $revenueStmt->execute([$today]);
-    $revenue = $revenueStmt->fetch()['total'] ?? 0;
+    $revenueStmt->execute([$today, $today, $today]);
+    $revenue = (float) ($revenueStmt->fetch()['total'] ?? 0);
     
     // Occupied rooms
     $occupiedQuery = "
