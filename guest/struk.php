@@ -149,13 +149,13 @@ $days = calculateDays($reservasi['tgl_masuk'], $reservasi['tgl_keluar']);
                     <p style="margin-bottom: 5px;">
                         Bank: <strong><?php echo BANK_NAME; ?></strong><br>
                         Nomor Rekening: <strong><?php echo BANK_ACCOUNT; ?></strong><br>
-                        Atas Nama: <strong><?php echo BANK_ACCOUNT_NAME; ?></strong><br>
+                        Atas Nama: <strong><?php echo HOTEL_NAME; ?></strong><br>
                         Jumlah: <strong><?php echo formatCurrency($reservasi['total_harga']); ?></strong>
                     </p>
                 </div>
 
                 <div class="alert alert-info">
-                    <i class="bi bi-info-circle"></i> Setelah melakukan pembayaran, silakan upload bukti pembayaran atau hubungi hotel untuk verifikasi.
+                    <i class="bi bi-info-circle"></i> Setelah melakukan pembayaran, silakan menunggu atau menghubungi hotel untuk verifikasi.
                 </div>
 
                 <div class="d-grid gap-2 no-print">
